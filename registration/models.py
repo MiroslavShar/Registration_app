@@ -25,9 +25,9 @@ class ReasonForVisit(models.Model):
 class Patient(models.Model):
     name = models.CharField(max_length=64)
     surname = models.CharField(max_length=64)
-    reason = models.OneToOneField(ReasonForVisit, on_delete=models.CASCADE)
-    medical_history = models.OneToOneField(MedicalHistory, on_delete=models.CASCADE)
-    doctor = models.OneToOneField(Doctor, on_delete=models.CASCADE)
+    reason = models.ForeignKey(ReasonForVisit, on_delete=models.CASCADE)
+    medical_history = models.ForeignKey(MedicalHistory, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     recommendation = models.ForeignKey(Recommendation, on_delete=models.CASCADE)
 
 
