@@ -15,6 +15,8 @@ class MedicalHistory(models.Model):
     anterior_segment_left_eye = models.CharField(max_length=255)
     fundus_segment_right_eye = models.CharField(max_length=255)
     fundus_left_eye = models.CharField(max_length=255)
+    date = models.DateField()
+
 
 class Recommendation(models.Model):
     recommendations = models.CharField(max_length=64)
@@ -25,16 +27,18 @@ class ReasonForVisit(models.Model):
 class Patient(models.Model):
     name = models.CharField(max_length=64)
     surname = models.CharField(max_length=64)
-    reason = models.ForeignKey(ReasonForVisit, on_delete=models.CASCADE)
     medical_history = models.ForeignKey(MedicalHistory, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     recommendation = models.ForeignKey(Recommendation, on_delete=models.CASCADE)
+
 
 
 class Visit(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     date = models.DateTimeField()
+    reason = models.ForeignKey(ReasonForVisit, on_delete=models.CASCADE)
+
 
 
 
