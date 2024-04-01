@@ -5,6 +5,9 @@ class Doctor(models.Model):
     surname = models.CharField(max_length=64)
     specialization = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 class MedicalHistory(models.Model):
     interview = models.CharField(max_length=510)
     ophthalmological_interview = models.CharField(max_length=510)

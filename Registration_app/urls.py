@@ -23,5 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
     path('add_doctor/', views.AddDoctor.as_view(), name='doctor'),
+    path('add_reason/', views.AddReason.as_view(), name='reason'),
+    path('add_patient/', views.AddPatient.as_view(), name='patient'),
+
 
 ]
